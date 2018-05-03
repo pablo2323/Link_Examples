@@ -78,11 +78,11 @@ public:
   // before any Asio's own global objects. With MSVC, this may be accomplished
   // by adding the following code to the DLL:
   //
-/*    #pragma warning(push)
-    #pragma warning(disable:4073)
-    #pragma init_seg(lib)
-    asio::detail::winsock_init<>::manual manual_winsock_init;
-    #pragma warning(pop)*/
+  //   #pragma warning(push)
+  //   #pragma warning(disable:4073)
+  //   #pragma init_seg(lib)
+  //   asio::detail::winsock_init<>::manual manual_winsock_init;
+  //   #pragma warning(pop)
   class manual
   {
   public:

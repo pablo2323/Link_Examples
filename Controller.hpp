@@ -19,14 +19,18 @@
 
 #pragma once
 
-#define LINKHUT_AUDIO_PLATFORM_ASIO = 1
-#define LINK_PLATFORM_WINDOWS = 1
-
+#ifdef __WIN32__
+# define LINK_PLATFORM_WINDOWS = 1
+# define LINKHUT_AUDIO_PLATFORM_ASIO = 1
+#endif
+#ifdef __MACH__
+# define LINK_PLATFORM_MACOSX = 1
+# define LINKHUT_AUDIO_PLATFORM_COREAUDIO = 1
+#endif
 
 #include "linkaudio/AudioPlatform.hpp"
 #include <QtCore/QObject>
 #include "ableton/Link.hpp"
-
 
 namespace ableton
 {
@@ -44,7 +48,7 @@ public:
   void setIsPlaying(bool);
   bool isPlaying();
   Q_SIGNAL void onIsPlayingChanged();
-  Q_PROPERTY(bool isPlaying READ isPlaying WRITE setIsPlaying NOTIFY onIsPlayingChanged)
+  Q_PROPERTY(bool isPlaying READ isPlaying WRITE setIsPlaying)
 
   void setTempo(double);
   double tempo();
@@ -65,6 +69,12 @@ public:
   Q_SIGNAL void onIsLinkEnabledChanged();
   Q_PROPERTY(bool isLinkEnabled WRITE setLinkEnabled READ isLinkEnabled NOTIFY
       onIsLinkEnabledChanged)
+
+  void setStartStopSyncEnabled(bool isEnabled);
+  bool isStartStopSyncEnabled();
+  Q_SIGNAL void onIsStartStopSyncEnabledChanged();
+  Q_PROPERTY(bool isStartStopSyncEnabled WRITE setStartStopSyncEnabled READ
+      isStartStopSyncEnabled NOTIFY onIsStartStopSyncEnabledChanged)
 
   Q_INVOKABLE double beatTime();
 

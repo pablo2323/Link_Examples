@@ -17,8 +17,6 @@
  *  please contact <link-devs@ableton.com>.
  */
 
-#define LINK_PLATFORM_WINDOWS = 1
-
 #include "Controller.hpp"
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>

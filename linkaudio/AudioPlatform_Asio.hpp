@@ -21,9 +21,6 @@
 
 #include "AudioEngine.hpp"
 
-#define LINKHUT_AUDIO_PLATFORM_ASIO = 1
-#define LINK_PLATFORM_WINDOWS = 1
-
 #include <ableton/Link.hpp>
 #include <ableton/link/HostTimeFilter.hpp>
 

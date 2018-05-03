@@ -11,9 +11,6 @@
 #ifndef ASIO_DETAIL_SOCKET_TYPES_HPP
 #define ASIO_DETAIL_SOCKET_TYPES_HPP
 
-#include "winsock2.h"
-#define WIN32_LEAN_AND_MEAN
-
 #if defined(_MSC_VER) && (_MSC_VER >= 1200)
 # pragma once
 #endif // defined(_MSC_VER) && (_MSC_VER >= 1200)

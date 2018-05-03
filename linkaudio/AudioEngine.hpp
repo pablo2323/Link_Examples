@@ -19,8 +19,14 @@
 
 #pragma once
 
-#define LINKHUT_AUDIO_PLATFORM_ASIO = 1
-#define LINK_PLATFORM_WINDOWS = 1
+#ifdef __WIN32__
+# define LINK_PLATFORM_WINDOWS = 1
+# define LINKHUT_AUDIO_PLATFORM_ASIO = 1
+#endif
+#ifdef __MACH__
+# define LINK_PLATFORM_MACOSX = 1
+# define LINKHUT_AUDIO_PLATFORM_COREAUDIO = 1
+#endif
 
 // Make sure to define this before <cmath> is included for Windows
 #define _USE_MATH_DEFINES
@@ -43,20 +49,23 @@ public:
   void setTempo(double tempo);
   double quantum() const;
   void setQuantum(double quantum);
+  bool isStartStopSyncEnabled() const;
+  void setStartStopSyncEnabled(bool enabled);
 
 private:
   struct EngineData
   {
     double requestedTempo;
-    bool resetBeatTime;
-    bool isPlaying;
+    bool requestStart;
+    bool requestStop;
     double quantum;
+    bool startStopSyncOn;
   };
 
   void setBufferSize(std::size_t size);
   void setSampleRate(double sampleRate);
   EngineData pullEngineData();
-  void renderMetronomeIntoBuffer(Link::Timeline timeline,
+  void renderMetronomeIntoBuffer(Link::SessionState sessionState,
     double quantum,
     std::chrono::microseconds beginHostTime,
     std::size_t numSamples);
@@ -69,6 +78,7 @@ private:
   EngineData mSharedEngineData;
   EngineData mLockfreeEngineData;
   std::chrono::microseconds mTimeAtLastClick;
+  bool mIsPlaying;
   std::mutex mEngineDataGuard;
 
   friend class AudioPlatform;
