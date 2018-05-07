@@ -19,13 +19,12 @@
 
 #pragma once
 
+# define LINKHUT_AUDIO_PLATFORM_ASIO = 1
 #ifdef __WIN32__
 # define LINK_PLATFORM_WINDOWS = 1
-# define LINKHUT_AUDIO_PLATFORM_ASIO = 1
 #endif
 #ifdef __MACH__
 # define LINK_PLATFORM_MACOSX = 1
-# define LINKHUT_AUDIO_PLATFORM_COREAUDIO = 1
 #endif
 
 #include "linkaudio/AudioPlatform.hpp"
