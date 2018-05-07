@@ -81,7 +81,7 @@ public:
 private:
   double mTempo;
   Link mLink;
-  linkaudio::AudioPlatform mAudioPlatform;
+  AudioPlatform mAudioPlatform;
 };
 
 } // namespace qlinkhut

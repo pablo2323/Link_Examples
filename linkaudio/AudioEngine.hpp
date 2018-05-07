@@ -51,6 +51,7 @@ public:
   void setQuantum(double quantum);
   bool isStartStopSyncEnabled() const;
   void setStartStopSyncEnabled(bool enabled);
+  void audioCallback();
 
 private:
   struct EngineData
@@ -62,26 +63,16 @@ private:
     bool startStopSyncOn;
   };
 
-  void setBufferSize(std::size_t size);
-  void setSampleRate(double sampleRate);
+
+;
   EngineData pullEngineData();
-  void renderMetronomeIntoBuffer(Link::SessionState sessionState,
-    double quantum,
-    std::chrono::microseconds beginHostTime,
-    std::size_t numSamples);
-  void audioCallback(const std::chrono::microseconds hostTime, std::size_t numSamples);
+
 
   Link& mLink;
-  double mSampleRate;
-  std::chrono::microseconds mOutputLatency;
-  std::vector<double> mBuffer;
   EngineData mSharedEngineData;
   EngineData mLockfreeEngineData;
-  std::chrono::microseconds mTimeAtLastClick;
   bool mIsPlaying;
   std::mutex mEngineDataGuard;
-
-  friend class AudioPlatform;
 };
 
 

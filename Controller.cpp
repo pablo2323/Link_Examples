@@ -46,6 +46,7 @@ void Controller::setIsPlaying(bool isPlaying)
   {
     mAudioPlatform.mEngine.stopPlaying();
   }
+  mAudioPlatform.mEngine.audioCallback();
 }
 
 bool Controller::isPlaying()
@@ -56,6 +57,7 @@ bool Controller::isPlaying()
 void Controller::setTempo(double bpm)
 {
   mAudioPlatform.mEngine.setTempo(bpm);
+  mAudioPlatform.mEngine.audioCallback();
 }
 
 double Controller::tempo()
@@ -71,6 +73,7 @@ double Controller::quantum()
 void Controller::setQuantum(const double quantum)
 {
   mAudioPlatform.mEngine.setQuantum(quantum);
+  mAudioPlatform.mEngine.audioCallback();
   Q_EMIT onQuantumChanged();
 }
 
@@ -82,6 +85,7 @@ unsigned long Controller::numberOfPeers()
 void Controller::setLinkEnabled(const bool isEnabled)
 {
   mLink.enable(isEnabled);
+  mAudioPlatform.mEngine.audioCallback();
   Q_EMIT onIsLinkEnabledChanged();
 }
 
