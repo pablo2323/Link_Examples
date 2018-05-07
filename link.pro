@@ -12,9 +12,6 @@ SOURCES += main.cpp
 SOURCES += Controller.cpp
 SOURCES += linkaudio/AudioEngine.cpp
 SOURCES += linkaudio/AudioPlatform_Asio.cpp
-#SOURCES += ASIOSDK2.3/common/asio.cpp
-#SOURCES += ASIOSDK2.3/host/asiodrivers.cpp
-#SOURCES += ASIOSDK2.3/host/pc/asiolist.cpp
 
 RESOURCES += resources.qrc
 
@@ -23,12 +20,8 @@ DEPENDPATH += $$PWD/include
 INCLUDEPATH += $$PWD/asio-standalone/asio/include
 DEPENDPATH += $$PWD/asio-standalone/asio/include
 
-DEFINES -= UNICODE
-DEFINES -= _UNICODE
-DEFINES += MBCS
-
 win32 : LIBS += -liphlpapi
-LIBS += -lws2_32
+win32 : LIBS += -lws2_32
 
 QMAKE_CFLAGS_WARN_OFF    = -wd4127 -wd4242 -wd4619 -wd4668 -wd4702 -wd4267 -wd4477
 QMAKE_CXXFLAGS_WARN_OFF  = $$QMAKE_CFLAGS_WARN_ON
