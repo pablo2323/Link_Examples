@@ -26,7 +26,7 @@
 #include <ableton/platforms/linux/Linux.hpp>
 #endif
 
-#ifdef __MINGW32__
+
     static __inline unsigned short bswap_16 (unsigned short __x)
     {
       return (__x >> 8) | (__x << 8);
@@ -41,7 +41,7 @@
     }
     #define htonll(x) bswap_64(x)
     #define ntohll(x) bswap_64(x)
-#endif
+
 
 #include <chrono>
 #include <cstdint>
