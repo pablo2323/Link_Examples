@@ -23,7 +23,6 @@
 #include <ableton/util/Injected.hpp>
 #include <chrono>
 #include <vector>
-#include <iostream>
 
 namespace ableton
 {
@@ -64,14 +63,9 @@ public:
   {
     using namespace std;
     debug(mIo->log()) << "Scanning network interfaces";
-    std::cout << "scanning interface" << std::endl;
     // Rescan the hardware for available network interface addresses
     vector<asio::ip::address> addrs = mIo->scanNetworkInterfaces();
     // Sort and unique them to guarantee consistent comparison
-    for (int i = 0; i < addrs.size(); i++)
-    {
-      std::cout << "address n° " << i << " is :  [" << addrs[i] << "]" << std::endl;
-     }
     sort(begin(addrs), end(addrs));
     addrs.erase(unique(begin(addrs), end(addrs)), end(addrs));
     // Pass them to the callback
