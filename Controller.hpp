@@ -19,6 +19,7 @@
 
 #pragma once
 
+#define LINKHUT_AUDIO_PLATFORM_ASIO
 
 #include "linkaudio/AudioPlatform.hpp"
 #include <QtCore/QObject>

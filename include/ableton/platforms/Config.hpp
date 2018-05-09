@@ -18,7 +18,7 @@
  */
 
 #pragma once
-
+#define LINK_PLATFORM_WINDOWS
 #include <ableton/link/Controller.hpp>
 #include <ableton/util/Log.hpp>
 
