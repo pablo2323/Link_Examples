@@ -21,7 +21,6 @@
 
 #include <ableton/link/Controller.hpp>
 #include <ableton/util/Log.hpp>
-#define LINK_PLATFORM_WINDOWS
 
 #if defined(LINK_PLATFORM_WINDOWS)
 #include <ableton/platforms/asio/Context.hpp>
