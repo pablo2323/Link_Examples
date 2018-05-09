@@ -18,14 +18,6 @@
  */
 
 #pragma once
-# define LINKHUT_AUDIO_PLATFORM_ASIO = 1
-
-#ifdef __WIN32__
-# define LINK_PLATFORM_WINDOWS = 1
-#endif
-#ifdef __MACH__
-# define LINK_PLATFORM_MACOSX = 1
-#endif
 
 // Make sure to define this before <cmath> is included for Windows
 #define _USE_MATH_DEFINES

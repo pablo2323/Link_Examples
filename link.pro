@@ -20,6 +20,10 @@ DEPENDPATH += $$PWD/include
 INCLUDEPATH += $$PWD/asio-standalone/asio/include
 DEPENDPATH += $$PWD/asio-standalone/asio/include
 
+win32: DEFINES += LINK_PLATFORM_WINDOWS
+macx: DEFINES += LINK_PLATFORM_MACOSX
+DEFINES += LINKHUT_AUDIO_PLATFORM_ASIO
+
 win32 : LIBS += -liphlpapi
 win32 : LIBS += -lws2_32
 
