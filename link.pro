@@ -2,11 +2,29 @@ TEMPLATE = app
 
 QT += qml quick
 CONFIG += c++11
+CONFIG += network
 
 HEADERS += Controller.hpp
 HEADERS += linkaudio/AudioEngine.hpp
 HEADERS += linkaudio/AudioPlatform.hpp
 HEADERS += linkaudio/AudioPlatform_Asio.hpp
+HEADERS += $$PWD/include/ableton/*
+HEADERS += $$PWD/include/ableton/discovery/*
+HEADERS += $$PWD/include/ableton/discovery/test/*
+HEADERS += $$PWD/include/ableton/discovery/v1/*
+HEADERS += $$PWD/include/ableton/link/*
+HEADERS += $$PWD/include/ableton/link/v1/*
+HEADERS += $$PWD/include/ableton/platforms/*
+HEADERS += $$PWD/include/ableton/platforms/asio/*
+HEADERS += $$PWD/include/ableton/platforms/darwin/*
+HEADERS += $$PWD/include/ableton/platforms/linux/*
+HEADERS += $$PWD/include/ableton/platforms/posix/*
+HEADERS += $$PWD/include/ableton/platforms/stl/*
+HEADERS += $$PWD/include/ableton/platforms/windows/*
+HEADERS += $$PWD/include/ableton/test/*
+HEADERS += $$PWD/include/ableton/test/serial_io/*
+HEADERS += $$PWD/include/ableton/util/*
+HEADERS += $$PWD/include/ableton/util/test/*
 
 SOURCES += main.cpp
 SOURCES += Controller.cpp

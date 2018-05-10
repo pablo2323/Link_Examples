@@ -26,23 +26,6 @@
 #include <ableton/platforms/linux/Linux.hpp>
 #endif
 
-
-    static __inline unsigned short bswap_16 (unsigned short __x)
-    {
-      return (__x >> 8) | (__x << 8);
-    }
-    static __inline unsigned int bswap_32 (unsigned int __x)
-    {
-      return (bswap_16 (__x & 0xffff) << 16) | (bswap_16 (__x >> 16));
-    }
-    static __inline unsigned long long bswap_64 (unsigned long long __x)
-    {
-      return (((unsigned long long) bswap_32 (__x & 0xffffffffull)) << 32) | (bswap_32 (__x >> 32));
-    }
-    #define htonll(x) bswap_64(x)
-    #define ntohll(x) bswap_64(x)
-
-
 #include <chrono>
 #include <cstdint>
 #include <type_traits>
@@ -54,6 +37,9 @@
 #include <WinSock2.h>
 #include <Windows.h>
 #endif
+
+#define htonll(x) ((1==htonl(1)) ? (x) : ((uint64_t)htonl((x) & 0xFFFFFFFF) << 32) | htonl((x) >> 32))
+#define ntohll(x) ((1==ntohl(1)) ? (x) : ((uint64_t)ntohl((x) & 0xFFFFFFFF) << 32) | ntohl((x) >> 32))
 
 namespace ableton
 {
