@@ -22,15 +22,15 @@ import QtQuick.Controls 1.2
 import QtQuick.Layouts 1.1
 
 Item {
-    width: 768 / 2
-    height: 576 / 2
+    width: 768
+    height: 576
 
     Rectangle {
         id: linkView
-        x: 31 / 2
-        y: 25 / 2
-        width: 170 / 2
-        height: 50 / 2
+        x: 31
+        y: 25
+        width: 170
+        height: 50
         border.color: "#404040"
         border.width: 1
         color: controller.isLinkEnabled ? "#E6E6E6" : "#FFFFFF"
@@ -40,7 +40,7 @@ Item {
             property var linkEnabledText: "0 Links"
             text: controller.isLinkEnabled ? linkEnabledText : "Link"
             color: "#404040"
-            font.pixelSize: 36 / 2
+            font.pixelSize: 36
             font.family: "Calibri"
             anchors.fill: parent
             horizontalAlignment: Text.AlignHCenter
@@ -69,13 +69,13 @@ Item {
 
     Rectangle {
         id: startStopSyncView
-        x: (parent.width - width - 31) / 2
-        y: 25 / 2
-        width: 300 / 2
-        height: 50 / 2
+        x: parent.width - width - 31
+        y: 25
+        width: 300
+        height: 50
 
         border.color: "#404040"
-        border.width: 1 / 2
+        border.width: 1
         color: controller.isStartStopSyncEnabled ? "#E6E6E6" : "#FFFFFF"
 
         Label {
@@ -83,7 +83,7 @@ Item {
             text: controller.isStartStopSyncEnabled ?
                 "StartStopSync On" : "StartStopSync Off"
             color: "#404040"
-            font.pixelSize: 36 / 2
+            font.pixelSize: 36
             font.family: "Calibri"
             anchors.fill: parent
             horizontalAlignment: Text.AlignHCenter
@@ -101,10 +101,10 @@ Item {
 
     Rectangle {
         id: loopView
-        x: 30 / 2
-        y: 90 / 2
-        width: 708 / 2
-        height: 328 / 2
+        x: 30
+        y: 90
+        width: 708
+        height: 328
 
         function onQuantumChanged() {
             for(var i = loopView.children.length; i > 0 ; i--) {
@@ -134,7 +134,7 @@ Item {
         }
 
         Timer {
-            interval: 8 / 2
+            interval: 8
             running: true
             repeat: true
             property var last: 1
@@ -157,31 +157,31 @@ Item {
     }
 
     Label {
-        x: 31 / 2
-        y: 460 / 2
-        width: 170 / 2
-        height: 30 / 2
+        x: 31
+        y: 460
+        width: 170
+        height: 30
         text: "Quantum";
         color: "#404040"
-        font.pixelSize: 24 / 2
+        font.pixelSize: 24
         font.family: "Calibri"
         horizontalAlignment: Text.AlignHCenter
     }
 
     Rectangle {
         id: quantumView
-        x: 31 / 2
-        y: 500 / 2
-        width: 170 / 2
-        height: 50 / 2
-        border.width : 1 / 2
+        x: 31
+        y: 500
+        width: 170
+        height: 50
+        border.width : 1
         border.color: "#404040"
 
         Label {
             id: quantumLabel
             text: controller.quantum.toFixed()
             color: "#404040"
-            font.pixelSize: 36 / 2
+            font.pixelSize: 36
             font.family: "Calibri"
             anchors.fill: parent
             horizontalAlignment: Text.AlignHCenter
@@ -212,12 +212,12 @@ Item {
 
     Label {
         x: (parent.width - width) / 2 - 90
-        y: 460 / 2
-        width: 170 / 2
-        height: 30 / 2
+        y: 460
+        width: 170
+        height: 30
         text: "Tempo";
         color: "#404040"
-        font.pixelSize: 24 / 2
+        font.pixelSize: 24
         font.family: "Calibri"
         horizontalAlignment: Text.AlignHCenter
     }
@@ -225,18 +225,18 @@ Item {
 
     Rectangle {
         id: tempoView
-        x: ((parent.width - width) / 2 - 90) / 2
-        y: 500 / 2
-        width: 170 / 2
-        height: 50 / 2
-        border.width : 1 / 2
+        x: (parent.width - width) / 2 - 90
+        y: 500
+        width: 170
+        height: 50
+        border.width : 1
         border.color: "#404040"
 
         Label {
             id: tempoLabel
             text: controller.tempo.toFixed(2)
             color: "#404040"
-            font.pixelSize: 36 / 2
+            font.pixelSize: 36
             font.family: "Calibri"
             anchors.fill: parent
             horizontalAlignment: Text.AlignHCenter
@@ -267,30 +267,30 @@ Item {
 
     Label {
         id: beatTimeView
-        x: ((parent.width - width) / 2 + 90) / 2
-        y: 460 / 2
-        width: 170 / 2
-        height: 30 / 2
+        x: (parent.width - width) / 2 + 90
+        y: 460
+        width: 170
+        height: 30
         text: "Beats"
         color: "#404040"
-        font.pixelSize: 24 / 2
+        font.pixelSize: 24
         font.family: "Calibri"
         horizontalAlignment: Text.AlignHCenter
     }
 
     Rectangle {
         id: beatTimeIntView
-        x: ((parent.width - width) / 2 + 90) / 2
-        y: 500 / 2
-        width: 170 / 2
-        height: 50 / 2
-        border.width: 1 / 2
+        x: (parent.width - width) / 2 + 90
+        y: 500
+        width: 170
+        height: 50
+        border.width: 1
         border.color: "#404040"
 
         Label {
             id: beatTimeText
             color: "#404040"
-            font.pixelSize: 36 / 2
+            font.pixelSize: 36
             font.family: "Calibri"
             anchors.fill: parent
             horizontalAlignment: Text.AlignHCenter
@@ -300,7 +300,7 @@ Item {
 
     Timer {
         id: timer
-        interval: 10 / 2
+        interval: 10
         repeat: true
         running: true
 
@@ -314,17 +314,17 @@ Item {
 
     Rectangle {
         id: transportView
-        x: (parent.width - width - 31) / 2
-        y: 500 / 2
-        width: 170 / 2
-        height: 50 / 2
+        x: parent.width - width - 31
+        y: 500
+        width: 170
+        height: 50
         border.width: 1
         border.color: "#404040"
 
         Label {
             id: transportText
             color: "#404040"
-            font.pixelSize: 36 / 2
+            font.pixelSize: 36
             font.family: "Calibri"
             anchors.fill: parent
             horizontalAlignment: Text.AlignHCenter

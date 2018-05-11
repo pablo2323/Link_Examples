@@ -25,8 +25,8 @@ Rectangle {
     property var countIn: false
     property var activeColor: "#404040"
     property var countInColor: "#909090"
-    height: 328 / 2;
-    border.width: 1 / 2;
+    height: 328;
+    border.width: 1;
     border.color: "#FFFFFF";
     color: index == currentBeat ? (countIn ? countInColor : activeColor) : "#404040"
 }
