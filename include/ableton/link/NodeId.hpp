@@ -23,8 +23,17 @@
 #include <algorithm>
 #include <array>
 #include <cstdint>
-#include <random>
 #include <string>
+#include <iostream>
+
+#ifdef __MINGW32__
+# include <stdlib.h>
+# include <time.h>
+# define RANDOM
+#else
+# include <random>
+# define RANDOM_DEVICE
+#endif
 
 namespace ableton
 {
@@ -46,14 +55,23 @@ struct NodeId : NodeIdArray
   {
     using namespace std;
 
-    random_device rd;
+#ifdef RANDOM_DEVICE
+      random_device rd;
     mt19937 gen(rd());
+#endif
+#ifdef RANDOM
+    srand(time(NULL));
+    mt19937 gen(rand() % 100000000 + 1);
+#endif
+
+
     // uint8_t not standardized for this type - use unsigned
     uniform_int_distribution<unsigned> dist(33, 126); // printable ascii chars
 
     NodeId nodeId;
     generate(
       nodeId.begin(), nodeId.end(), [&] { return static_cast<uint8_t>(dist(gen)); });
+    std::cout << "THE GENERATED CODE IS : " << nodeId << std::endl;
     return nodeId;
   }
 
