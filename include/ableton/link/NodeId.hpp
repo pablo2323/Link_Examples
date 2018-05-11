@@ -63,8 +63,6 @@ struct NodeId : NodeIdArray
     srand(time(NULL));
     mt19937 gen(rand() % 100000000 + 1);
 #endif
-
-
     // uint8_t not standardized for this type - use unsigned
     uniform_int_distribution<unsigned> dist(33, 126); // printable ascii chars
 
