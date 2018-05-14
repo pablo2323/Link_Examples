@@ -69,7 +69,6 @@ struct NodeId : NodeIdArray
     NodeId nodeId;
     generate(
       nodeId.begin(), nodeId.end(), [&] { return static_cast<uint8_t>(dist(gen)); });
-    std::cout << "THE GENERATED CODE IS : " << nodeId << std::endl;
     return nodeId;
   }
 
